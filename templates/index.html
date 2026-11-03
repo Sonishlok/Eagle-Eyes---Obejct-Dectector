@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eagle Eye</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="page">
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 12S6 5.8 12 5.8 21.5 12 21.5 12 18 18.2 12 18.2 2.5 12 2.5 12Z"></path>
+              <circle cx="12" cy="12" r="3.2"></circle>
+            </svg>
+          </span>
+          <span class="brand-name">Eagle Eye</span>
+        </div>
+        <div class="live-pill" id="livePill">
+          <span class="dot" id="liveDot"></span>
+          <span id="liveText">LIVE</span>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <div class="feed-column">
+          <div class="meta-bar">
+            <div class="camera-meta">
+              <span class="dot" id="cameraDot"></span>
+              <span id="cameraLabel">DEV_CAM_01 | 640x480 @ 30fps</span>
+            </div>
+            <div class="latency" id="latencyLabel">LATENCY: 0ms</div>
+          </div>
+
+          <div class="video-stage">
+            <img id="videoFeed" src="/video_feed" alt="Live webcam feed with object detection overlays">
+            <div class="offline-overlay" id="offlineOverlay" hidden>Camera stream unavailable</div>
+          </div>
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-head">
+            <span class="panel-title">Detection Log</span>
+            <span class="item-count" id="itemCount">0 ITEMS</span>
+          </div>
+          <div class="log-list" id="detectionLog">
+            <div class="empty-log" id="emptyLog">Waiting for detections...</div>
+          </div>
+          <div class="sidebar-foot">
+            <span>Inference <span id="inferenceValue">0.0ms</span></span>
+            <span class="engine" id="engineLabel">CPU</span>
+          </div>
+        </aside>
+      </section>
+
+      <footer class="status-bar">
+        <div class="status-item">
+          <span class="dot" id="statusCameraDot"></span>
+          <span id="cameraStatus">Camera Active</span>
+        </div>
+        <div class="status-item" id="frameRateLabel">Frame Rate: 0 FPS</div>
+        <div class="status-item" id="ramLabel">RAM: 0 MB</div>
+        <div class="status-item status-right">
+          <span class="dot" id="syncDot"></span>
+          <span id="syncLabel">Engine Sync: OK</span>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
